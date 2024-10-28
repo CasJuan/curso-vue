@@ -8,7 +8,7 @@
     return `Hola ${name}`;
 } */
 
-const greePerson = (name:string) => `Hola ${name}`;
+//const greePerson = (name:string) => `Hola ${name}`;
 
 /* const getUser = () => {
     return {
