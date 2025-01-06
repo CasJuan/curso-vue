@@ -9,7 +9,7 @@ const quotes = [
 
 
 
-const {createApp , ref} = Vue;
+const {createApp , ref, computed} = Vue;
 
 
 const app = createApp( {
@@ -17,15 +17,26 @@ const app = createApp( {
     setup() {
 
         const showAuthor = ref(true);
+        const quotes = ref (originalQuotes);
+         const totalQuotes = computed (() => {
+            return quotes.value.length;
+         })
+
 
         const viewAuthor = () => {
             showAuthor.value = !showAuthor.value;
         }
+
+        const addQuoete = () => {
+            quotes.value.unshift ({quote:'Hola mundo', author:'Fernando Herrera'})
+        };
     
         return {
             quotes,
             showAuthor,
             viewAuthor,
+            addQuoete,
+            totalQuotes,
         }
 
     }
