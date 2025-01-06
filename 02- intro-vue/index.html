@@ -13,13 +13,14 @@
         <input type="text" 
         placeholder="Add quote"
         @keypress.enter="addQuote"
+        v-model="newMessage"
         
         >
 
         <br>
         <br>
 
-        <button  @click = "viewAuthor">Toffle Author</button>
+        <button  @click = "viewAuthor">Toggle Author</button>
         
 
         <hr>

@@ -17,18 +17,21 @@ const app = createApp( {
     setup() {
 
         const showAuthor = ref(true);
-        const quotes = ref (originalQuotes);
-         const totalQuotes = computed (() => {
-            return quotes.value.length;
-         })
+        const quotes = ref(originalQuotes);
+        const newMessage = ref(' ');
 
+
+        const totalQuotes = computed (() => {
+            return quotes.value.length;
+        })
 
         const viewAuthor = () => {
             showAuthor.value = !showAuthor.value;
         }
 
         const addQuoete = () => {
-            quotes.value.unshift ({quote:'Hola mundo', author:'Fernando Herrera'})
+            quotes.value.unshift ( { quote: newMessage.value , author:'Fernando Herrera' } );
+            newMessage.value = '';
         };
     
         return {
@@ -37,6 +40,8 @@ const app = createApp( {
             viewAuthor,
             addQuoete,
             totalQuotes,
+            newMessage,
+
         }
 
     }
