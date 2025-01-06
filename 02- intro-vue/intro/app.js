@@ -2,10 +2,10 @@
 const { createApp,  ref} = Vue;
 
 const app = createApp({
-    template: `
+   /*  template: `
     <h1>{{message}}</h1>
     <p>{{author}}</p>
-    `,
+    `, */
 
     setup(){
 
@@ -13,14 +13,22 @@ const app = createApp({
 
        const author =  ref ('Bruce Wayne');
 
-       setTimeout(() => {
+
+       const changeQuote= () => {
+            message.value = 'Hola soy Goku';
+            author.value = 'Goku';
+       }
+
+       /* setTimeout(() => {
         message.value = 'Hola soy Goku';
         author.value = 'Goku'
-       },1000);
+       },1000); */
 
         return {
             message,
-            author
+            author,
+            changeQuote,
+
         }
 
     }
