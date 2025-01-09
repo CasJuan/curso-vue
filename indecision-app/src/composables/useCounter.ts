@@ -1,11 +1,5 @@
 import { computed, ref } from "vue";
 
-
-
-
-
-
-
 export const useCounter = (initalValue:number = 5) => {
 
     const counter = ref(initalValue);
