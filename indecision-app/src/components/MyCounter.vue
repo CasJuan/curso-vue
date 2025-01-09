@@ -5,8 +5,8 @@
         <h3>Square: {{ squareCounter }}</h3>
 
         <div>
-            <button @click="counter--"> -1</button>
-            <button @click="incrementar"> +1</button>
+            <button class="p-5  bg-blue-500 rounded hover:bg-blue-700 mr-2" @click="counter--"> -1</button>
+            <button class="p-5  bg-blue-500 rounded hover:bg-blue-700 mr-2" @click="incrementar"> +1</button>
         </div>
     </section>
 
@@ -35,4 +35,11 @@ const props = defineProps<Props>();
     }
 
 </script>
+
+<!-- /* <style scoped lang="postcss">
+    .btn{
+        @apply p-5 bg bg-blue-500 rounded hover:bg-blue-700 mr-2;
+    }
+
+</style>  */ -->
 

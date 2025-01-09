@@ -1,5 +1,7 @@
 <template>
-    <h1>Mi primera app</h1>
+    <h1 className="text-3xl font-bold underline">
+      Hello world!
+    </h1>
     <hr>    
 
     <MyCounter :value="1" />
