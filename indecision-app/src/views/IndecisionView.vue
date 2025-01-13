@@ -23,6 +23,15 @@ const messages = ref<ChatMessage[]>([
   },
 ]);
 
+
+const onMessage = (text:string) => {
+  messages.value.push({
+    id: new Date().getTime(),
+    itsMine:true,
+    message:text,
+  });
+}
+
 </script>
 
 <!-- Fuente: https://tailwindcomponents.com/component/chat-layout -->
@@ -34,7 +43,7 @@ const messages = ref<ChatMessage[]>([
   
       <ChatMessages :messages="messages"/>
   
-      <MessageBox/>
+      <MessageBox @send-message="onMessage"/>
 
     </div>
   </template>
