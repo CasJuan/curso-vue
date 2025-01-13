@@ -6,7 +6,7 @@
 
         <div>
             <button class="p-5  bg-blue-500 rounded hover:bg-blue-700 mr-2" @click="counter--"> -1</button>
-            <button class="p-5  bg-blue-500 rounded hover:bg-blue-700 mr-2" @click="incrementar"> +1</button>
+            <button class="p-5  bg-blue-500 rounded hover:bg-blue-700 mr-2" @click="counter++"> +1</button>
         </div>
     </section>
 
@@ -19,18 +19,18 @@ import { useCounter } from '../composables/useCounter';
 
 
 
-const {counter, squareCounter} =  useCounter(10);
 /* import {computed, ref} from 'vue'; */
 
 /* const props = defineProps({
     value: {type: Number, required:true},
-}); */
-
-interface Props {
-    value: number;
-}
-const props = defineProps<Props>(); 
-
+    }); */
+    
+    interface Props {
+        value: number;
+    }
+    const props = defineProps<Props>(); 
+    
+    const {counter, squareCounter} =  useCounter(10);
 /* 
     const counter = ref(props.value);
     const squareCounter = computed(() => counter.value * counter.value); */
