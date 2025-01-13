@@ -1,20 +1,40 @@
 <script setup lang="ts">
 import type { ChatMessage } from '@/interfaces/chat-message.interface';
 import ChatBubble from './ChatBubble.vue';
-import type { Prop } from 'vue';
+import { nextTick, ref, watch } from 'vue';
 
 interface Props{
   messages: ChatMessage[];
 }
 
+const chatRef = ref<HTMLDivElement|null>(null);
 
+const { messages } = defineProps<Props>();
 
-defineProps<Props>();
+/* watch(messages, () => {
+  setTimeout(() => {
+    chatRef.value?.scrollTo({
+      top: chatRef.value.scrollHeight,
+      behavior:'smooth',
+    });
+  },100)
+});
+ */
+watch( () => messages, async () => {
+      await nextTick();
+      chatRef.value?.scrollTo({
+        top: chatRef.value.scrollHeight,
+        behavior: 'smooth',
+      });
+    },
+    { deep: true },
+  );
+
 
 </script>
 
 <template>
-    <div class="flex-1 overflow-y-auto p-4">
+    <div ref="chatRef" class="flex-1 overflow-y-auto p-4">
         <div class="flex flex-col space-y-2">
           <!-- Messages go here -->
          <ChatBubble 
@@ -22,6 +42,7 @@ defineProps<Props>();
          :key="message.id"
          v-bind="message"
          />
+
          <!-- :its-mine="message.itsMine" 
          :message="message.message"
          :image="message.image -->"

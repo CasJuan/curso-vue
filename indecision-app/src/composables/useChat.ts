@@ -1,7 +1,7 @@
 import type { ChatMessage } from "@/interfaces/chat-message.interface";
 import { ref } from "vue";
-import { YesNoRespose } from "@/interfaces/yes-no.response";
 import { sleep } from "@/helpers/sleep";
+import { YesNoRespose } from "@/interfaces/yes-no.response";
 
 
 export const useChat = () => {
@@ -11,7 +11,7 @@ export const useChat = () => {
 
     const getHerResponse = async() => {
         const resp = await fetch('https://yesno.wtf/api');
-        const data = (await resp.json() as YesNoRespose);
+        const data = (await resp.json()) as YesNoRespose;
         return data;
     }
       
