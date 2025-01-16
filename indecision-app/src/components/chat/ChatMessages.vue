@@ -9,7 +9,7 @@ interface Props{
 
 const chatRef = ref<HTMLDivElement|null>(null);
 
-const { messages } = defineProps<Props>();
+const props = defineProps<Props>();
 
 /* watch(messages, () => {
   setTimeout(() => {
@@ -20,7 +20,7 @@ const { messages } = defineProps<Props>();
   },100)
 });
  */
-watch( () => messages, async () => {
+watch(  props, async () => {
       await nextTick();
       chatRef.value?.scrollTo({
         top: chatRef.value.scrollHeight,
