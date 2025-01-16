@@ -36,9 +36,7 @@ describe('<IndecisionView />' , () => {
 
         messageboxComponent.vm.$emit('sendMessage','Hola mundo');
 
-        await new Promise((r) => setTimeout(() => {
-            r
-        }, 150));
+        await new Promise((r) => setTimeout(() => r, 150));
     })
 
 
